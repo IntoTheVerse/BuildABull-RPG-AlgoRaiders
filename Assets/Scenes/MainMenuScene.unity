@@ -1517,68 +1517,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 325428922}
   m_CullTransparentMesh: 1
---- !u!1 &412147896
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 412147898}
-  - component: {fileID: 412147897}
-  m_Layer: 0
-  m_Name: Cadence
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &412147897
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 412147896}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 129007fd62eba77a0af75a35c588bba0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  userInfo: {fileID: 3232733424486734734, guid: d4cdeede0f15e1fbbba9704eee95d97d, type: 3}
-  tokenAccount: {fileID: 3232733424486734734, guid: 4364f3a83e83f97a9a3cd2c5ff3f971a, type: 3}
-  nftCharacter: {fileID: 3232733424486734734, guid: 08b3f39a07fda0923a8c686ab42535e6, type: 3}
-  createNewUser: {fileID: 3232733424486734734, guid: f948ec557960cb99f951b9a6b81c3bea, type: 3}
-  updateUserName: {fileID: 3232733424486734734, guid: 8eb278587ed2d8ea19158b232c15144f, type: 3}
-  updateUserHighScore: {fileID: 3232733424486734734, guid: 308123558877d90c7a8fc6bfdf1d0b04, type: 3}
-  createTokenVault: {fileID: 3232733424486734734, guid: b3c4401fc3e54b47a82eb16d7fb544b6, type: 3}
-  transferToken: {fileID: 3232733424486734734, guid: 98b55b1b701ac3936acbbb16efac28da, type: 3}
-  setupNftCollections: {fileID: 3232733424486734734, guid: e822b9f038faf51f886900061df91d0a, type: 3}
-  mintCharacterNft: {fileID: 3232733424486734734, guid: b1cd41947f47d2849bd16f0e22e99ec0, type: 3}
-  mintWeaponNft: {fileID: 3232733424486734734, guid: af44b0578fa7baee5969428cd0bab201, type: 3}
-  test: {fileID: 3232733424486734734, guid: 3a4fa1e3e181ace9e988bb679dd27e74, type: 3}
-  getUserName: {fileID: 3232733424486734734, guid: e08979e9c748dba6891291d48da7e347, type: 3}
-  getUserHighScore: {fileID: 3232733424486734734, guid: 1d53dbcf17532a230acc5eecbdd4d516, type: 3}
-  getUserNameAndHighScore: {fileID: 3232733424486734734, guid: 0d2c2444da8f7f48c9f19e088d5a4875, type: 3}
-  getTokenBalance: {fileID: 3232733424486734734, guid: ca8217343bd0af63eb5d0d6c63cd2c40, type: 3}
-  getAllMetadatas: {fileID: 3232733424486734734, guid: 7d370d9d9778770328d9dacb84d7df72, type: 3}
-  getOwnedNftIds: {fileID: 3232733424486734734, guid: 04919e8509412045fbc74913ade70ff7, type: 3}
---- !u!4 &412147898
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 412147896}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 7
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &413141808
 GameObject:
   m_ObjectHideFlags: 0
@@ -1931,10 +1869,10 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0
+    x: 0.23750001
     y: 0
-    width: 1
-    height: 1
+    width: 0.29629633
+    height: 0.2962963
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
@@ -3760,51 +3698,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 799217363}
   m_CullTransparentMesh: 1
---- !u!1 &815331363
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 815331365}
-  - component: {fileID: 815331364}
-  m_Layer: 0
-  m_Name: Flow Control
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &815331364
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 815331363}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4634361940c492a44be3cda2b44f02a8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _data: {fileID: 11400000, guid: bc270df1e58d524c3977d07d3aa3383a, type: 2}
---- !u!4 &815331365
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 815331363}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &815816273
 GameObject:
   m_ObjectHideFlags: 0
@@ -5840,7 +5733,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1561727713
 GameObject:
@@ -7162,7 +7055,7 @@ RectTransform:
   m_Children:
   - {fileID: 1517712242}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -7721,14 +7614,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0bc4af48d3bd7530aeab62683a7c7cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scriptsExecutionAccount:
-    _name: 
-    infoKeys: []
-    infoValues: []
-    _gatewayName: 
-  flowControl: {fileID: 11400000, guid: bc270df1e58d524c3977d07d3aa3383a, type: 2}
-  qrCodeCustomPrefab: {fileID: 7915014497306295185, guid: b81509201b621038faa71a4a0d960621, type: 3}
-  walletSelectCustomPrefab: {fileID: 3259697318640616505, guid: 2821d68f994fad643ad3b7af99846f79, type: 3}
+  playerPrefsPath: account-local-store
   DunTokenBalance: 0
   playerLevel: 0
 --- !u!4 &2133748541
@@ -7744,7 +7630,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2134685892
 GameObject:
@@ -8245,7 +8131,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &933542640880248898
 MonoBehaviour:

@@ -13,7 +13,7 @@ public class HighScoreManager : SingletonMonobehaviour<HighScoreManager>
     private const string SPREADSHEET_PUBLIC_ID = "1e9_OIlqk9LSTHSWGa-uLL0oGUSJHAyMqkWKm8QnzOcY";
     private const string SPREADSHEET_NAME = "WalletAddress";
     private GstuSpreadSheet spreadSheet;
-
+    
     protected override void Awake()
     {
         base.Awake();
@@ -24,15 +24,15 @@ public class HighScoreManager : SingletonMonobehaviour<HighScoreManager>
     {
         GetScores((success) => 
         {
-            if (success && Scores.scoreList.Count > 0 && SceneManager.GetActiveScene().name == "MainMenuScene")
-            {
-                FindObjectOfType<DisplayHighScoresUI>(true).DisplayScores(Scores);
-                Score playerScore = Scores.scoreList.Find(x => x.walletAddress == WalletManager.instance.flowAccount.Address);
-                if (playerScore != null)
-                    WalletManager.instance.playerLevel = playerScore.level;
-                else
-                    WalletManager.instance.playerLevel = 0;
-            }
+            // if (success && Scores.scoreList.Count > 0 && SceneManager.GetActiveScene().name == "MainMenuScene")
+            // {
+            //     FindObjectOfType<DisplayHighScoresUI>(true).DisplayScores(Scores);
+            //     Score playerScore = Scores.scoreList.Find(x => x.walletAddress == WalletManager.instance.flowAccount.Address);
+            //     if (playerScore != null)
+            //         WalletManager.instance.playerLevel = playerScore.level;
+            //     else
+            //         WalletManager.instance.playerLevel = 0;
+            // }
         });
     }
 

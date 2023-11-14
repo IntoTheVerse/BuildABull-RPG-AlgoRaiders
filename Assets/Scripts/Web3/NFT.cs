@@ -1,6 +1,4 @@
 using System.Collections;
-using DapperLabs.Flow.Sdk;
-using DapperLabs.Flow.Sdk.Cadence;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -25,7 +23,7 @@ public class NFT : MonoBehaviour
 
     private void Start()
     {
-        buyButton.onClick.AddListener(() => StartCoroutine(BuyNFT()));
+        //buyButton.onClick.AddListener(() => StartCoroutine(BuyNFT()));
         equipButton.onClick.AddListener(() => EquipNFT());
         detailsButton.onClick.AddListener(() => ShowDetails());
         details = FindObjectOfType<NFTDetails>(true);
@@ -59,46 +57,46 @@ public class NFT : MonoBehaviour
         else buyButton.gameObject.SetActive(true);
     }
 
-    private IEnumerator BuyNFT()
-    {
-        if (WalletManager.instance.DunTokenBalance < price)
-        {
-            InfoDisplay.Instance.ShowInfo("Error", $"Dun Balacne low! You need {price}, but have {WalletManager.instance.DunTokenBalance}.");
-            Debug.LogError("Dun Balance too low!");
-            yield break;
-        }
+    // private IEnumerator BuyNFT()
+    // {
+    //     if (WalletManager.instance.DunTokenBalance < price)
+    //     {
+    //         InfoDisplay.Instance.ShowInfo("Error", $"Dun Balacne low! You need {price}, but have {WalletManager.instance.DunTokenBalance}.");
+    //         Debug.LogError("Dun Balance too low!");
+    //         yield break;
+    //     }
 
-        string transactionString = type == 0 ? Cadence.instance.mintCharacterNft.text : Cadence.instance.mintWeaponNft.text;
-        var txResponse = Transactions.SubmitAndWaitUntilSealed
-        (
-            transactionString,
-            Convert.ToCadence(WalletManager.instance.flowAccount.Address, "Address"),
-            Convert.ToCadence((System.UInt64)id, "UInt64"),
-            Convert.ToCadence((decimal)price, "UFix64")
-        );
-        InfoDisplay.Instance.ShowInfo("Sign Transaction", $"Please sign the {(type == 0 ? "character" : "weapon")} minting trasaction from your wallet!");
-        yield return new WaitUntil(() => txResponse.IsCompleted);
-        InfoDisplay.Instance.HideInfo();
-        var txResult = txResponse.Result;
-        if (txResult.Error != null)
-        {
-            Cadence.instance.DebugFlowErrors(txResult.Error);
-            yield break;
-        }
-        else
-        {
-            if (txResult.StatusCode == 1)
-            {
-                InfoDisplay.Instance.ShowInfo("Error", "Internal Error");
-                yield break;
-            }
-            Debug.Log($"Transaction Completion Code: {txResult.StatusCode}");
-            owns = true;
-            CheckOwnsAndSetButtons();
-            FindObjectOfType<MainMenuUI>().UpdateUserDunBalance((int)(WalletManager.instance.DunTokenBalance - price));
-            yield break;
-        }
-    }
+    //     string transactionString = type == 0 ? Cadence.instance.mintCharacterNft.text : Cadence.instance.mintWeaponNft.text;
+    //     var txResponse = Transactions.SubmitAndWaitUntilSealed
+    //     (
+    //         transactionString,
+    //         Convert.ToCadence(WalletManager.instance.flowAccount.Address, "Address"),
+    //         Convert.ToCadence((System.UInt64)id, "UInt64"),
+    //         Convert.ToCadence((decimal)price, "UFix64")
+    //     );
+    //     InfoDisplay.Instance.ShowInfo("Sign Transaction", $"Please sign the {(type == 0 ? "character" : "weapon")} minting trasaction from your wallet!");
+    //     yield return new WaitUntil(() => txResponse.IsCompleted);
+    //     InfoDisplay.Instance.HideInfo();
+    //     var txResult = txResponse.Result;
+    //     if (txResult.Error != null)
+    //     {
+    //         Cadence.instance.DebugFlowErrors(txResult.Error);
+    //         yield break;
+    //     }
+    //     else
+    //     {
+    //         if (txResult.StatusCode == 1)
+    //         {
+    //             InfoDisplay.Instance.ShowInfo("Error", "Internal Error");
+    //             yield break;
+    //         }
+    //         Debug.Log($"Transaction Completion Code: {txResult.StatusCode}");
+    //         owns = true;
+    //         CheckOwnsAndSetButtons();
+    //         FindObjectOfType<MainMenuUI>().UpdateUserDunBalance((int)(WalletManager.instance.DunTokenBalance - price));
+    //         yield break;
+    //     }
+    // }
 
     private void EquipNFT()
     {
@@ -107,6 +105,6 @@ public class NFT : MonoBehaviour
 
     private void ShowDetails()
     {
-        details.SetupDetails(nftName_, nftDesc, owns, type, nftSprite, (int)price, () => StartCoroutine(BuyNFT()), EquipNFT);
+        //details.SetupDetails(nftName_, nftDesc, owns, type, nftSprite, (int)price, () => StartCoroutine(BuyNFT()), EquipNFT);
     }
 }

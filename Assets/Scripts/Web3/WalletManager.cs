@@ -1,24 +1,25 @@
 using UnityEngine;
-using DapperLabs.Flow.Sdk;
-using DapperLabs.Flow.Sdk.Unity;
-using DapperLabs.Flow.Sdk.Crypto;
-using DapperLabs.Flow.Sdk.WalletConnect;
-using System.Threading.Tasks;
-using DapperLabs.Flow.Sdk.DataObjects;
+using Algorand.Unity;
+using System;
+using Algorand.Unity.Crypto;
 
 public class WalletManager : MonoBehaviour
 {
+    private string walletPassword = "n-':%6s^@x~hG9a*;3<HEA";
     public static WalletManager instance { get; private set; }
-    public FlowAccount flowAccount;
-    public FlowControl.Account scriptsExecutionAccount;
-    public FlowControlData flowControl;
-    public GameObject qrCodeCustomPrefab;
-    public GameObject walletSelectCustomPrefab;
-    private string walletAddress = "";
+    public string playerPrefsPath = Guid.NewGuid().ToString();
+    public LocalAccountStore accountStore;
     [HideInInspector] public float DunTokenBalance;
     [HideInInspector] public float playerLevel;
     [HideInInspector] public NFTMetadatas metadatas;
     [HideInInspector] public OwnedNFTIds ownedNFTIds;
+    [HideInInspector] public AlgodClient client;
+
+    private void OnValidate()
+    {
+        if (string.IsNullOrEmpty(playerPrefsPath))
+            playerPrefsPath = Guid.NewGuid().ToString();
+    }
 
     void Awake()
     {
@@ -31,62 +32,68 @@ public class WalletManager : MonoBehaviour
         }
     }
 
-    void Start()
+    public void AuthenticateWithWallet()
     {
-        FlowConfig flowConfig = new()
+        client = new("https://testnet-algorand.api.purestake.io/ps2");
+        var encryptedAccountStore = PlayerPrefs.GetString(playerPrefsPath, null);
+        if (string.IsNullOrEmpty(encryptedAccountStore))
         {
-            NetworkUrl = FlowConfig.TESTNETURL,
-            Protocol = FlowConfig.NetworkProtocol.HTTP
-        };
-        FlowSDK.Init(flowConfig);
-        IWallet walletProvider = new WalletConnectProvider();
-        walletProvider.Init(new WalletConnectConfig
-        {
-            ProjectId = "c5a0e570828c856d8d6908a95e64d40c",
-            ProjectDescription = "Dungeon Flow is a game developed for Flow Hackathon",
-            ProjectIconUrl = "https://walletconnect.com/meta/favicon.ico",
-            ProjectName = "Dungeon Flow",
-            ProjectUrl = "https://linktr.ee/intotheverse",
-            QrCodeDialogPrefab = qrCodeCustomPrefab,
-            WalletSelectDialogPrefab = walletSelectCustomPrefab
-        });
-        FlowSDK.RegisterWalletProvider(walletProvider);
-        scriptsExecutionAccount = new()
-        {
-            GatewayName = "Flow Testnet"
-        };
-    }
-
-    public async Task AuthenticateWithWallet()
-    {
-        await FlowSDK.GetWalletProvider().Authenticate("", (string flowAddress) =>
-        {
-            walletAddress = flowAddress;
-        }, () =>
-        {
-            Debug.LogError("Authentication failed.");
-        });
-    }
-
-    public async Task SetFlowAccout()
-    {
-        if (string.IsNullOrEmpty(walletAddress))
-        {
-            Debug.LogError("Unable to load wallet!");
+            CreateNewWallet();
         }
         else
         {
-            var acc = await Accounts.GetByAddress(walletAddress);
-            if (acc.Error != null)
+            LoginToWallet();
+        }
+    }
+
+    private void LoginToWallet()
+    {
+        Debug.Log("Open Wallet");
+        var encryptedAccountStore = PlayerPrefs.GetString(playerPrefsPath, null);
+        using var securePassword = new SodiumString(walletPassword);
+        var decryptError = LocalAccountStore.Decrypt(encryptedAccountStore, securePassword, out accountStore);
+        if (decryptError == LocalAccountStore.DecryptError.InvalidFormat)
+        {
+            PlayerPrefs.DeleteKey(playerPrefsPath);
+            PlayerPrefs.Save();
+            return;
+        }
+    }
+
+    private void CreateNewWallet()
+    {
+        Debug.Log("Create Wallet");
+        using var securePassword = new SodiumString(walletPassword);
+        accountStore = new LocalAccountStore(securePassword);
+        using var seedRef = SodiumReference<Ed25519.Seed>.Alloc();
+        using var secretKeyRef = SodiumReference<Ed25519.SecretKey>.Alloc();
+        var pk = default(Ed25519.PublicKey);
+        Ed25519.GenKeyPair(ref seedRef.RefValue, ref secretKeyRef.RefValue, ref pk);
+        accountStore = accountStore.Add(ref secretKeyRef.RefValue);
+        Save();
+    }
+
+    public void Save()
+    {
+        if (accountStore.IsCreated)
+        {
+            var encryptError = accountStore.Encrypt(out var encryptedString);
+            if (encryptError != LocalAccountStore.EncryptError.None)
             {
-                Cadence.instance.DebugFlowErrors(acc.Error);
-                FlowSDK.GetWalletProvider().Unauthenticate();
+                Debug.LogError($"Failed to encrypt account store: {encryptError}");
                 return;
             }
-            else
-            {
-                flowAccount = acc;
-            }
+            PlayerPrefs.SetString(playerPrefsPath, encryptedString);
+            PlayerPrefs.Save();
+        }
+    }
+
+    private void OnDisable()
+    {
+        if (accountStore.IsCreated)
+        {
+            Save();
+            accountStore.Dispose();
         }
     }
 }
