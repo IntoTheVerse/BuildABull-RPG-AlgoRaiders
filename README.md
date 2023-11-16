@@ -17,7 +17,7 @@ On-chain Rogue-Like Dungeon Crawler RPG powered by Algorand Testnet
 
   
 </p>
-  <p>View the project demo on <a href="">YouTube</a></p>
+  <p>View the project demo on <a href="">YouTube</a> and our <a href="https://docs.google.com/presentation/d/1MYeZdORadSU3ZK62cihihmAteZJSNFFVMufpVgOT0lI/edit?usp=sharing">Deck</a></p>
 </p>
 
 ### built by team IntoTheVerse 
