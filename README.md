@@ -3,7 +3,7 @@
 
 
 <h1 align="center">AlgoRaiders</h1>
-On-chain Rogue-Like Dungeon Crawler RPG powered by Algorand Testnet 
+On-chain Rogue-Like Dungeon Crawler RPG powered by Algorand Unity SDK
 <p align="center">
   <a href="https://youtu.be/IEfSIgAxVZg">
     <img src="https://github.com/IntoTheVerse/BuildABull-RPG-AlgoRaiders/assets/43913734/a9593761-439f-4a27-9c13-f6c4ee10052d" alt="Logo" >
