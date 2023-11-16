@@ -13,11 +13,15 @@ On-chain Rogue-Like Dungeon Crawler RPG powered by Algorand Unity SDK
 
 
 ### verify our smart contract deployed to algorand testnet
-[Smart Contract]()
+![explorer](https://github.com/IntoTheVerse/BuildABull-RPG-AlgoRaiders/assets/43913734/d30e6df0-9dac-412d-bb21-8b3dc5e80758)
+![exp2](https://github.com/IntoTheVerse/BuildABull-RPG-AlgoRaiders/assets/43913734/e0111a75-9a85-40ae-990d-9c1a2b5f5124)
 
+
+
+### DEMO AND DECK LINKS
   
 </p>
-  <p>View the project demo on <a href="">YouTube</a> and our <a href="https://docs.google.com/presentation/d/1MYeZdORadSU3ZK62cihihmAteZJSNFFVMufpVgOT0lI/edit?usp=sharing">Deck</a></p>
+  <p>View the project demo on <a href="https://youtu.be/taLdKsWosl4">YouTube</a> and our <a href="https://docs.google.com/presentation/d/1MYeZdORadSU3ZK62cihihmAteZJSNFFVMufpVgOT0lI/edit?usp=sharing">Deck</a></p>
 </p>
 
 ### built by team IntoTheVerse 
@@ -52,6 +56,8 @@ Features worked on during the hackathon ✅(achieved)/🔄(undergoing):
 ✅ Understanding Algorand Unity SDK, algodAPI, indexer, algonode APIs since purestake APIs were shutdown
 ✅ Data indexers using GraphQL using C# library
 ✅ NFT Storefront that uses $DUN Token for purchases and also reflecting the same inside the Unity client using the SDK, without any server
+
+
 
 Shoutout and appreciation to [Jason (Careboo) ](https://github.com/jasonboukheir) for helping us with blockers related to working on the [SDK](https://github.com/CareBoo/unity-algorand-sdk)
 ![image](https://github.com/IntoTheVerse/BuildABull-RPG/assets/43913734/c312156f-a333-4f1c-8510-e8ad27c6e530)
