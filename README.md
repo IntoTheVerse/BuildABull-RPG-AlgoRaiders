@@ -1,12 +1,13 @@
 # Algorand BuildABull Hackathon
-<img width="150" alt="image" src="https://github.com/IntoTheVerse/BuildABull-RPG-AlgoRaiders/assets/43913734/0d591408-9b98-4330-b279-f27fad8b7360">
+<img width="150" alt="Screenshot 2023-11-16 at 8 32 00 AM" src="https://github.com/IntoTheVerse/BuildABull-RPG-AlgoRaiders/assets/43913734/2b8157ed-3f3d-4126-8c83-f046f755b27c">
+
 
 
 <h1 align="center">AlgoRaiders</h1>
 On-chain Rogue-Like Dungeon Crawler RPG powered by Algorand Unity SDK
 <p align="center">
   <a href="https://youtu.be/taLdKsWosl4">
-    <img src="https://github.com/IntoTheVerse/BuildABull-RPG-AlgoRaiders/assets/43913734/a9593761-439f-4a27-9c13-f6c4ee10052d" alt="Logo" >
+    <img src="https://github.com/IntoTheVerse/BuildABull-RPG-AlgoRaiders/assets/43913734/f00bc3b9-393e-4e43-8993-9e4d66dbc536" alt="Logo" >
   </a>
 </p>
 
@@ -17,10 +18,8 @@ On-chain Rogue-Like Dungeon Crawler RPG powered by Algorand Unity SDK
 - [Game Wallet on Algorand Explorer](https://testnet.algoexplorer.io/address/ZL6C2HKDELN5QEB5XBQPOBIWIWR6AQBYBVJHTEOJC5K3FGI3C7JDHF2UBU)
 - [Player on Algorand Explorer](https://testnet.algoexplorer.io/address/HIOCRQZZSKFJRTMCTQENWMHHM5UGJK54MIJ4IHV6YOHYQTSJ4I5WAQNUGA)
 
-![explorer](https://github.com/IntoTheVerse/BuildABull-RPG-AlgoRaiders/assets/43913734/d30e6df0-9dac-412d-bb21-8b3dc5e80758)
-![exp2](https://github.com/IntoTheVerse/BuildABull-RPG-AlgoRaiders/assets/43913734/e0111a75-9a85-40ae-990d-9c1a2b5f5124)
-
-
+![exp2](https://github.com/IntoTheVerse/BuildABull-RPG-AlgoRaiders/assets/43913734/701c7f6e-536a-4832-a6e6-2d6df94149a3)
+![image (7)](https://github.com/IntoTheVerse/BuildABull-RPG-AlgoRaiders/assets/43913734/fa11f069-91dd-4806-adc6-cf9e45ef8b5e)
 
 ### DEMO AND DECK LINKS
   
@@ -61,14 +60,19 @@ Features worked on during the hackathon ✅(achieved)/🔄(undergoing):
 ✅ Data indexers using GraphQL using C# library
 ✅ NFT Storefront that uses $DUN Token for purchases and also reflecting the same inside the Unity client using the SDK, without any server
 
-<img width="1426" alt="image" src="https://github.com/IntoTheVerse/BuildABull-RPG-AlgoRaiders/assets/43913734/893d19a6-2ac1-40de-a75f-e36cd03f04c7">
-<img width="1440" alt="Screenshot 2023-11-16 at 9 47 57 AM" src="https://github.com/IntoTheVerse/BuildABull-RPG-AlgoRaiders/assets/43913734/05d02d61-e30e-4ddc-b1da-20a7d3ce8b2b">
-<img width="1435" alt="Screenshot 2023-11-16 at 9 47 45 AM" src="https://github.com/IntoTheVerse/BuildABull-RPG-AlgoRaiders/assets/43913734/82690323-3985-4598-b344-34ffbbf107a8">
-<img width="1400" alt="Screenshot 2023-11-16 at 9 38 20 AM" src="https://github.com/IntoTheVerse/BuildABull-RPG-AlgoRaiders/assets/43913734/7c1eb9c3-52a5-406b-a974-9e2bd232605a">
+<img width="1400" alt="Screenshot 2023-11-16 at 9 38 20 AM" src="https://github.com/IntoTheVerse/BuildABull-RPG-AlgoRaiders/assets/43913734/0c55e513-e2cd-4613-a242-e1c86ff85c3e">
+<img width="1435" alt="Screenshot 2023-11-16 at 9 47 45 AM" src="https://github.com/IntoTheVerse/BuildABull-RPG-AlgoRaiders/assets/43913734/2031f035-af04-4905-ade1-2b6d03b28283">
+<img width="1440" alt="Screenshot 2023-11-16 at 9 47 57 AM" src="https://github.com/IntoTheVerse/BuildABull-RPG-AlgoRaiders/assets/43913734/5c5a2d4e-2238-4449-a5f9-a84cbb678f3b">
+<img width="1426" alt="Screenshot 2023-11-16 at 9 48 25 AM" src="https://github.com/IntoTheVerse/BuildABull-RPG-AlgoRaiders/assets/43913734/d7a47470-a326-463c-9b56-b466cbfa4755">
+
+
+
+
 
 
 Shoutout and appreciation to [Jason (Careboo) ](https://github.com/jasonboukheir) for helping us with blockers related to working on the [SDK](https://github.com/CareBoo/unity-algorand-sdk)
-![image](https://github.com/IntoTheVerse/BuildABull-RPG/assets/43913734/c312156f-a333-4f1c-8510-e8ad27c6e530)
+<img width="1349" alt="Screenshot 2023-11-16 at 8 11 38 AM" src="https://github.com/IntoTheVerse/BuildABull-RPG-AlgoRaiders/assets/43913734/54ce28c1-fa9f-4f0b-81de-286f1d92f54f">
+
 
 
 
