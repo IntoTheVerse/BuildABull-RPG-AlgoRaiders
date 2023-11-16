@@ -13,6 +13,10 @@ On-chain Rogue-Like Dungeon Crawler RPG powered by Algorand Unity SDK
 
 
 ### verify our smart contract deployed to algorand testnet
+
+- [Game Wallet on Algorand Explorer](https://testnet.algoexplorer.io/address/ZL6C2HKDELN5QEB5XBQPOBIWIWR6AQBYBVJHTEOJC5K3FGI3C7JDHF2UBU)
+- [Player on Algorand Explorer](https://testnet.algoexplorer.io/address/HIOCRQZZSKFJRTMCTQENWMHHM5UGJK54MIJ4IHV6YOHYQTSJ4I5WAQNUGA)
+
 ![explorer](https://github.com/IntoTheVerse/BuildABull-RPG-AlgoRaiders/assets/43913734/d30e6df0-9dac-412d-bb21-8b3dc5e80758)
 ![exp2](https://github.com/IntoTheVerse/BuildABull-RPG-AlgoRaiders/assets/43913734/e0111a75-9a85-40ae-990d-9c1a2b5f5124)
 
