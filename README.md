@@ -1,7 +1,24 @@
-# Algorand BuildABull
+# Algorand BuildABull Hackathon
+<img width="150" alt="image" src="https://github.com/IntoTheVerse/BuildABull-RPG-AlgoRaiders/assets/43913734/0d591408-9b98-4330-b279-f27fad8b7360">
 
-### Algoraiders
-On-chain Rogue-Like Dungeon Crawler RPG powered by Algorand Testnet - 
+
+<h1 align="center">AlgoRaiders</h1>
+On-chain Rogue-Like Dungeon Crawler RPG powered by Algorand Testnet 
+<p align="center">
+  <a href="https://youtu.be/IEfSIgAxVZg">
+    <img src="https://github.com/IntoTheVerse/BuildABull-RPG-AlgoRaiders/assets/43913734/a9593761-439f-4a27-9c13-f6c4ee10052d" alt="Logo" >
+  </a>
+</p>
+
+
+
+### verify our smart contract deployed to algorand testnet
+[Smart Contract]()
+
+  
+</p>
+  <p>View the project demo on <a href="">YouTube</a></p>
+</p>
 
 ### built by team IntoTheVerse 
 - (@memxor) and (@lopeselio) on ALgorand Discord
