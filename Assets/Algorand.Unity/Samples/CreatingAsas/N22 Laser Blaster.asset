@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 05e26971ff71046669b85452782df82d, type: 3}
-  m_Name: GameToken
+  m_Name: N22 Laser Blaster
   m_EditorClassIdentifier: 
   Index:
-    Index: 0
-  Network: 0
+    Index: 479783137
+  Network: 1
   Params:
     Clawback:
       publicKey:
@@ -52,7 +52,7 @@ MonoBehaviour:
           byte0013: 0
           byte0014: 0
           byte0015: 0
-    Decimals: 1
+    Decimals: 0
     DefaultFrozen: 0
     Freeze:
       publicKey:
@@ -162,27 +162,27 @@ MonoBehaviour:
         byte0014: 0
         byte0015: 0
     Name:
-      utf8LengthInBytes: 10
+      utf8LengthInBytes: 17
       bytes:
         offset0000:
-          byte0000: 71
-          byte0001: 97
-          byte0002: 109
-          byte0003: 101
-          byte0004: 32
-          byte0005: 84
-          byte0006: 111
-          byte0007: 107
-          byte0008: 101
-          byte0009: 110
-          byte0010: 0
-          byte0011: 0
-          byte0012: 0
-          byte0013: 0
-          byte0014: 0
-          byte0015: 0
+          byte0000: 78
+          byte0001: 50
+          byte0002: 50
+          byte0003: 32
+          byte0004: 76
+          byte0005: 97
+          byte0006: 115
+          byte0007: 101
+          byte0008: 114
+          byte0009: 32
+          byte0010: 66
+          byte0011: 108
+          byte0012: 97
+          byte0013: 115
+          byte0014: 116
+          byte0015: 101
         offset0016:
-          byte0000: 0
+          byte0000: 114
           byte0001: 0
           byte0002: 0
           byte0003: 0
@@ -265,14 +265,14 @@ MonoBehaviour:
           byte0013: 0
           byte0014: 0
           byte0015: 0
-    Total: 100000
+    Total: 1000
     UnitName:
-      utf8LengthInBytes: 2
+      utf8LengthInBytes: 3
       bytes:
         offset0000:
-          byte0000: 71
-          byte0001: 84
-          byte0002: 0
+          byte0000: 78
+          byte0001: 50
+          byte0002: 50
           byte0003: 0
           byte0004: 0
           byte0005: 0
@@ -300,139 +300,6 @@ MonoBehaviour:
         byte0027: 0
         byte0028: 0
         byte0029: 0
-    Url:
-      utf8LengthInBytes: 0
-      bytes:
-        offset0000:
-          byte0000: 0
-          byte0001: 0
-          byte0002: 0
-          byte0003: 0
-          byte0004: 0
-          byte0005: 0
-          byte0006: 0
-          byte0007: 0
-          byte0008: 0
-          byte0009: 0
-          byte0010: 0
-          byte0011: 0
-          byte0012: 0
-          byte0013: 0
-          byte0014: 0
-          byte0015: 0
-        offset0016:
-          byte0000: 0
-          byte0001: 0
-          byte0002: 0
-          byte0003: 0
-          byte0004: 0
-          byte0005: 0
-          byte0006: 0
-          byte0007: 0
-          byte0008: 0
-          byte0009: 0
-          byte0010: 0
-          byte0011: 0
-          byte0012: 0
-          byte0013: 0
-          byte0014: 0
-          byte0015: 0
-        offset0032:
-          byte0000: 0
-          byte0001: 0
-          byte0002: 0
-          byte0003: 0
-          byte0004: 0
-          byte0005: 0
-          byte0006: 0
-          byte0007: 0
-          byte0008: 0
-          byte0009: 0
-          byte0010: 0
-          byte0011: 0
-          byte0012: 0
-          byte0013: 0
-          byte0014: 0
-          byte0015: 0
-        offset0048:
-          byte0000: 0
-          byte0001: 0
-          byte0002: 0
-          byte0003: 0
-          byte0004: 0
-          byte0005: 0
-          byte0006: 0
-          byte0007: 0
-          byte0008: 0
-          byte0009: 0
-          byte0010: 0
-          byte0011: 0
-          byte0012: 0
-          byte0013: 0
-          byte0014: 0
-          byte0015: 0
-        offset0064:
-          byte0000: 0
-          byte0001: 0
-          byte0002: 0
-          byte0003: 0
-          byte0004: 0
-          byte0005: 0
-          byte0006: 0
-          byte0007: 0
-          byte0008: 0
-          byte0009: 0
-          byte0010: 0
-          byte0011: 0
-          byte0012: 0
-          byte0013: 0
-          byte0014: 0
-          byte0015: 0
-        offset0080:
-          byte0000: 0
-          byte0001: 0
-          byte0002: 0
-          byte0003: 0
-          byte0004: 0
-          byte0005: 0
-          byte0006: 0
-          byte0007: 0
-          byte0008: 0
-          byte0009: 0
-          byte0010: 0
-          byte0011: 0
-          byte0012: 0
-          byte0013: 0
-          byte0014: 0
-          byte0015: 0
-        offset0096:
-          byte0000: 0
-          byte0001: 0
-          byte0002: 0
-          byte0003: 0
-          byte0004: 0
-          byte0005: 0
-          byte0006: 0
-          byte0007: 0
-          byte0008: 0
-          byte0009: 0
-          byte0010: 0
-          byte0011: 0
-          byte0012: 0
-          byte0013: 0
-          byte0014: 0
-          byte0015: 0
-        byte0112: 0
-        byte0113: 0
-        byte0114: 0
-        byte0115: 0
-        byte0116: 0
-        byte0117: 0
-        byte0118: 0
-        byte0119: 0
-        byte0120: 0
-        byte0121: 0
-        byte0122: 0
-        byte0123: 0
-        byte0124: 0
-        byte0125: 0
+    Url: '{"Name": "N22 Laser Blaster", "Description": "Straight out of retro sci-fi,
+      this blaster shoots dazzling lasers with flashy sound effects, invoking nostalgia
+      for space adventures", "Price": "16"}'

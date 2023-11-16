@@ -90,7 +90,7 @@ namespace Algorand.Unity
         /// </summary>
         [AlgoApiField("au")]
         [Tooltip("URL where more information about the asset can be retrieved. Included only when the URL is composed of printable utf-8 characters.")]
-        public FixedString128Bytes Url;
+        public string Url;
 
 
         public bool Equals(AssetParams other)

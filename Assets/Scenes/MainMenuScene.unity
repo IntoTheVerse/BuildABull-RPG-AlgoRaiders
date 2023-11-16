@@ -1076,7 +1076,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Dungeon Flow
+  m_text: AlgoRaiders
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: dfe1ba23c638bec49a583843476bb5c9, type: 2}
   m_sharedMaterial: {fileID: 8120199949304618070, guid: dfe1ba23c638bec49a583843476bb5c9, type: 2}
@@ -1869,10 +1869,10 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0.23750001
+    x: 0
     y: 0
-    width: 0.29629633
-    height: 0.2962963
+    width: 1
+    height: 1
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
@@ -5246,8 +5246,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -62.2137, y: -59.75299}
-  m_SizeDelta: {x: 235.7583, y: 13.448}
+  m_AnchoredPosition: {x: -1.2664, y: -72.8}
+  m_SizeDelta: {x: 357.65, y: 13.448}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1514648792
 MonoBehaviour:
@@ -5296,14 +5296,14 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 7
-  m_fontSizeBase: 7
+  m_fontSize: 5.5
+  m_fontSizeBase: 5.5
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
+  m_HorizontalAlignment: 4
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -7615,8 +7615,105 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerPrefsPath: account-local-store
-  DunTokenBalance: 0
+  gameAccount: {fileID: 11400000, guid: 5bd8bf2195bf04f87ad87ac36a6f47db, type: 2}
+  dunTokenId:
+    Index: 479674406
+  characterObjects:
+  - {fileID: 11400000, guid: b143d9510f0437753a5268a9029bceb1, type: 2}
+  - {fileID: 11400000, guid: ccd11c91f4244572c81fa99aa157d82d, type: 2}
+  - {fileID: 11400000, guid: 8c60ea85284d72407ba91da1a98818bc, type: 2}
+  weaponObjects:
+  - {fileID: 11400000, guid: caaed62967d83f3beab12bc3dc8cd633, type: 2}
+  - {fileID: 11400000, guid: c4c753995078459e6970bf744b8cdb47, type: 2}
+  - {fileID: 11400000, guid: 7fe3a5b299abe34829a9cbc688fba834, type: 2}
+  - {fileID: 11400000, guid: 8ff020439841e94ebb96d5669f8f41fd, type: 2}
+  - {fileID: 11400000, guid: 57ccf39f6deb00cc2ab267f2f59debe4, type: 2}
+  - {fileID: 11400000, guid: c8a284e3e4760b91e9834fd9ddea4ac7, type: 2}
+  - {fileID: 11400000, guid: 4f22cce48c281430e8b737c9bf34864b, type: 2}
+  - {fileID: 11400000, guid: 9ae8722f19888f87496f6708a21c9f7a, type: 2}
+  - {fileID: 11400000, guid: 61f388deb99ce841b9ca141e9801c37e, type: 2}
   playerLevel: 0
+  client:
+    address: 
+    token: 
+    headers: []
+  account:
+    amount: 0
+    address: 
+    rewards: 0
+    amountWithoutPendingRewards: 0
+    appsTotalExtraPages:
+      Value: 0
+      HasValue: 0
+    totalAssetsOptedIn: 0
+    assets: []
+    participation:
+      selectionParticipationKey: 
+      voteFirstValid: 0
+      voteKeyDilution: 0
+      voteLastValid: 0
+      voteParticipationKey: 
+      stateProofKey: 
+    totalBoxBytes:
+      Value: 0
+      HasValue: 0
+    appsTotalSchema:
+      numUint: 0
+      numByteSlice: 0
+    totalAppsOptedIn: 0
+    round: 0
+    pendingRewards: 0
+    createdApps: []
+    totalBoxes:
+      Value: 0
+      HasValue: 0
+    status: 
+    sigType: 0
+    authAddr:
+      publicKey:
+        offset0000:
+          byte0000: 0
+          byte0001: 0
+          byte0002: 0
+          byte0003: 0
+          byte0004: 0
+          byte0005: 0
+          byte0006: 0
+          byte0007: 0
+          byte0008: 0
+          byte0009: 0
+          byte0010: 0
+          byte0011: 0
+          byte0012: 0
+          byte0013: 0
+          byte0014: 0
+          byte0015: 0
+        offset0016:
+          byte0000: 0
+          byte0001: 0
+          byte0002: 0
+          byte0003: 0
+          byte0004: 0
+          byte0005: 0
+          byte0006: 0
+          byte0007: 0
+          byte0008: 0
+          byte0009: 0
+          byte0010: 0
+          byte0011: 0
+          byte0012: 0
+          byte0013: 0
+          byte0014: 0
+          byte0015: 0
+    totalCreatedAssets: 0
+    minBalance: 0
+    rewardBase:
+      Value: 0
+      HasValue: 0
+    createdAssets: []
+    appsLocalState: []
+    totalCreatedApps: 0
+  DunTokenBalance: 0
 --- !u!4 &2133748541
 Transform:
   m_ObjectHideFlags: 0

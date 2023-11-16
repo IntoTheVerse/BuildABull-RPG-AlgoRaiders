@@ -1,4 +1,5 @@
-using System.Collections;
+using Algorand.Unity;
+using Algorand.Unity.Algod;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -15,6 +16,7 @@ public class NFT : MonoBehaviour
     private float price;
     private int type;
     private int id;
+    private AssetIndex index;
     private bool owns;
     private string nftName_;
     private string nftDesc;
@@ -23,19 +25,20 @@ public class NFT : MonoBehaviour
 
     private void Start()
     {
-        //buyButton.onClick.AddListener(() => StartCoroutine(BuyNFT()));
+        buyButton.onClick.AddListener(() => BuyNFT());
         equipButton.onClick.AddListener(() => EquipNFT());
         detailsButton.onClick.AddListener(() => ShowDetails());
         details = FindObjectOfType<NFTDetails>(true);
     }
 
-    public void SetupNFT(string name, string desc, int price, Sprite nftSprite, bool owns, int type, int id)
+    public void SetupNFT(string name, string desc, int price, Sprite nftSprite, bool owns, int type, int id, AssetIndex index)
     {
         this.type = type;
         this.price = price;
         this.id = id;
         this.owns = owns;
         this.nftSprite = nftSprite;
+        this.index = index;
         nftDesc = desc;
         nftName_ = name;
 
@@ -57,54 +60,65 @@ public class NFT : MonoBehaviour
         else buyButton.gameObject.SetActive(true);
     }
 
-    // private IEnumerator BuyNFT()
-    // {
-    //     if (WalletManager.instance.DunTokenBalance < price)
-    //     {
-    //         InfoDisplay.Instance.ShowInfo("Error", $"Dun Balacne low! You need {price}, but have {WalletManager.instance.DunTokenBalance}.");
-    //         Debug.LogError("Dun Balance too low!");
-    //         yield break;
-    //     }
+    private async void BuyNFT()
+    {
+        if (WalletManager.instance.DunTokenBalance < price)
+        {
+            InfoDisplay.Instance.ShowInfo("Error", $"Dun Balacne low! You need {price}, but have {WalletManager.instance.DunTokenBalance}.");
+            Debug.LogError("Dun Balance too low!");
+            return;
+        }
+        
+        TransactionParametersResponse suggestedParams = (await WalletManager.instance.client.TransactionParams()).Payload;
+        Address receiver = WalletManager.instance.accountStore[0].Address;
 
-    //     string transactionString = type == 0 ? Cadence.instance.mintCharacterNft.text : Cadence.instance.mintWeaponNft.text;
-    //     var txResponse = Transactions.SubmitAndWaitUntilSealed
-    //     (
-    //         transactionString,
-    //         Convert.ToCadence(WalletManager.instance.flowAccount.Address, "Address"),
-    //         Convert.ToCadence((System.UInt64)id, "UInt64"),
-    //         Convert.ToCadence((decimal)price, "UFix64")
-    //     );
-    //     InfoDisplay.Instance.ShowInfo("Sign Transaction", $"Please sign the {(type == 0 ? "character" : "weapon")} minting trasaction from your wallet!");
-    //     yield return new WaitUntil(() => txResponse.IsCompleted);
-    //     InfoDisplay.Instance.HideInfo();
-    //     var txResult = txResponse.Result;
-    //     if (txResult.Error != null)
-    //     {
-    //         Cadence.instance.DebugFlowErrors(txResult.Error);
-    //         yield break;
-    //     }
-    //     else
-    //     {
-    //         if (txResult.StatusCode == 1)
-    //         {
-    //             InfoDisplay.Instance.ShowInfo("Error", "Internal Error");
-    //             yield break;
-    //         }
-    //         Debug.Log($"Transaction Completion Code: {txResult.StatusCode}");
-    //         owns = true;
-    //         CheckOwnsAndSetButtons();
-    //         FindObjectOfType<MainMenuUI>().UpdateUserDunBalance((int)(WalletManager.instance.DunTokenBalance - price));
-    //         yield break;
-    //     }
-    // }
+        InfoDisplay.Instance.ShowInfo("Hold tight!", "Minting");
+        var TransferTxn = Transaction.AssetTransfer(
+            WalletManager.instance.gameAccount.Address,
+            suggestedParams,
+            index,
+            1,
+            receiver);
+        SignedTxn<AssetTransferTxn> signedTransferTxn = WalletManager.instance.gameAccount.SignTxn(TransferTxn);
+        var signedTransferTxnResponse = await WalletManager.instance.client.SendTransaction(signedTransferTxn);
+        LogTransactionDetails(signedTransferTxnResponse);
+
+        if (signedTransferTxnResponse.Status == UnityEngine.Networking.UnityWebRequest.Result.Success)
+        {
+            var paymentTx = Transaction.Payment(receiver, suggestedParams, WalletManager.instance.gameAccount.Address, (ulong)price * 10);
+            var signedPaymentTxn = WalletManager.instance.accountStore[0].SignTxn(paymentTx);
+            var paymentTxnResponse = await WalletManager.instance.client.SendTransaction(signedPaymentTxn);
+            LogTransactionDetails(paymentTxnResponse);
+            await WalletManager.instance.client.WaitForConfirmation(signedTransferTxnResponse.Payload.TxId);
+            await WalletManager.instance.client.WaitForConfirmation(paymentTxnResponse.Payload.TxId);
+
+            if(paymentTxnResponse.Status == UnityEngine.Networking.UnityWebRequest.Result.Success)
+            {
+                owns = true;
+                CheckOwnsAndSetButtons();
+                FindObjectOfType<MainMenuUI>().UpdateUserDunBalance((int)(WalletManager.instance.DunTokenBalance - price));
+            }
+        }
+
+        InfoDisplay.Instance.HideInfo();
+        return;
+    }
+
+    private void LogTransactionDetails(AlgoApiResponse<PostTransactionsResponse> response)
+    {
+        Debug.Log(response.Error);
+        Debug.Log(response.Status);
+        Debug.Log(response.ResponseCode);
+        Debug.Log(response.Payload.TxId);
+    }
 
     private void EquipNFT()
     {
-        if(type == 0) FindObjectOfType<CharacterSelectorUI>(true).SwitchToCharacter(id - 1);
+        if(type == 0) FindObjectOfType<CharacterSelectorUI>(true).SwitchToCharacter(id);
     }
 
     private void ShowDetails()
     {
-        //details.SetupDetails(nftName_, nftDesc, owns, type, nftSprite, (int)price, () => StartCoroutine(BuyNFT()), EquipNFT);
+        details.SetupDetails(nftName_, nftDesc, owns, type, nftSprite, (int)price, () => BuyNFT(), EquipNFT);
     }
 }

@@ -178,7 +178,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2936276756521162843, guid: 50aee902b80902947ba13e1052ab8efa, type: 3}
       propertyPath: weaponSpawnByLevelList.Array.data[4].spawnableObjectRatioList.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2936276756521162843, guid: 50aee902b80902947ba13e1052ab8efa, type: 3}
       propertyPath: weaponSpawnByLevelList.Array.data[5].spawnableObjectRatioList.Array.size

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64a00a35ce5bbe34da0995589e385360, type: 3}
   m_Name: WeaponDetails_MP7
   m_EditorClassIdentifier: 
-  weaponId: 5
+  weaponId: 479782866
   weaponName: MP7
   weaponSprite: {fileID: 21300000, guid: a735f74a317b5f944929af56be472cb7, type: 3}
   weaponShootPosition: {x: 1.146, y: 0.277, z: 0}

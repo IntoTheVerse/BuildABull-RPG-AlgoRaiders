@@ -129,64 +129,31 @@ public class CharacterSelectorUI : MonoBehaviour
     /// </summary>
     public void UpdatePlayerName()
     {
-        // playerNameInput.text = playerNameInput.text.ToUpper();
+        playerNameInput.text = playerNameInput.text.ToUpper();
 
-        // if (FlowSDK.GetWalletProvider().IsAuthenticated())
-        // {
-        //     applyButton.interactable = true;
-        //     cancelButton.interactable = true;
-        //     applyButton.gameObject.SetActive(true);
-        //     cancelButton.gameObject.SetActive(true);
-        // }
+        if (WalletManager.instance.accountStore.IsCreated)
+        {
+            applyButton.interactable = true;
+            cancelButton.interactable = true;
+            applyButton.gameObject.SetActive(true);
+            cancelButton.gameObject.SetActive(true);
+        }
     }
 
     public void OnApplyUsername()
     {
-        //StartCoroutine(UpdateUsername());
+        UpdateUsername();
     }
 
-    // private IEnumerator UpdateUsername()
-    // {
-    //     applyButton.interactable = false;
-    //     cancelButton.interactable = false;
-    //     var txResponse = Transactions.SubmitAndWaitUntilSealed(
-    //         Cadence.instance.updateUserName.text,
-    //         Convert.ToCadence(playerNameInput.text, "String") 
-    //     );
-    //     InfoDisplay.Instance.ShowInfo("Sign Transaction", "Please sign the change username trasaction from your wallet!");
-    //     yield return new WaitUntil(() => txResponse.IsCompleted);
-    //     InfoDisplay.Instance.HideInfo();
-    //     var txResult = txResponse.Result;
-
-    //     if (txResult.Error != null)
-    //     {
-    //         Cadence.instance.DebugFlowErrors(txResult.Error);
-    //         playerNameInput.text = currentPlayer.playerName;
-    //     }
-    //     else
-    //     {
-    //         var scpRespone = WalletManager.instance.scriptsExecutionAccount.ExecuteScript
-    //         (
-    //             Cadence.instance.getUserName.text,
-    //             Convert.ToCadence(WalletManager.instance.flowAccount.Address, "Address")
-    //         );
-    //         yield return new WaitUntil(() => scpRespone.IsCompleted);
-    //         var scpResult = scpRespone.Result;
-    //         if (scpResult.Error != null)
-    //         {
-    //             Cadence.instance.DebugFlowErrors(txResult.Error);
-    //             playerNameInput.text = currentPlayer.playerName;
-    //         }
-    //         else
-    //         {
-    //             string recievedResult = Convert.FromCadence<string>(scpResult.Value);
-    //             playerNameInput.text = recievedResult;
-    //             currentPlayer.playerName = recievedResult;
-    //         }
-    //     }
-    //     applyButton.gameObject.SetActive(false);
-    //     cancelButton.gameObject.SetActive(false);
-    // }
+    private void UpdateUsername()
+    {
+        applyButton.interactable = false;
+        cancelButton.interactable = false;
+        PlayerPrefs.SetString("PlayerName", playerNameInput.text);
+        currentPlayer.playerName = playerNameInput.text;
+        applyButton.gameObject.SetActive(false);
+        cancelButton.gameObject.SetActive(false);
+    }
 
     public void OnCancelUsername()
     {

@@ -5,6 +5,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1705139068582714480, guid: f9f2d4b81232e9149a1fe923858a4ee2, type: 3}
@@ -221,7 +222,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6839687933860854480, guid: f9f2d4b81232e9149a1fe923858a4ee2, type: 3}
       propertyPath: weaponSpawnByLevelList.Array.data[4].spawnableObjectRatioList.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6839687933860854480, guid: f9f2d4b81232e9149a1fe923858a4ee2, type: 3}
       propertyPath: weaponSpawnByLevelList.Array.data[5].spawnableObjectRatioList.Array.size
@@ -356,4 +357,7 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 1ab1b024d2a888c43ae92de3cf7320d2, type: 2}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f9f2d4b81232e9149a1fe923858a4ee2, type: 3}

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Algorand.Unity;
 using UnityEngine;
 
 public class RandomSpawnableObject<T>
@@ -39,8 +40,8 @@ public class RandomSpawnableObject<T>
                 {
                     if (isWeapon)
                     {
-                        if (WalletManager.instance.ownedNFTIds.ownedWeaponsId.Contains((spawnableObjectRatio.dungeonObject as WeaponDetailsSO).weaponId))
-                        { 
+                        if (WalletManager.instance.ownedNFTIds.ownedWeaponsId.Contains((AssetIndex)(spawnableObjectRatio.dungeonObject as WeaponDetailsSO).weaponId))
+                        {
                             int lowerBoundary = upperBoundary + 1;
 
                             upperBoundary = lowerBoundary + spawnableObjectRatio.ratio - 1;

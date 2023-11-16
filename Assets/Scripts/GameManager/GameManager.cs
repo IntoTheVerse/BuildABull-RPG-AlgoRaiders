@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Algorand.Unity;
+using Algorand.Unity.Algod;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -627,7 +628,6 @@ public class GameManager : SingletonMonobehaviour<GameManager>
 
     }
 
-
     /// <summary>
     /// Game Won
     /// </summary>
@@ -638,7 +638,7 @@ public class GameManager : SingletonMonobehaviour<GameManager>
         // Disable player
         GetPlayer().playerControl.DisablePlayer();
 
-        //HighScoreManager.Instance.AddScore(new Score() { walletAddress = WalletManager.instance.flowAccount.Address, playerName = GameResources.Instance.currentPlayer.playerName, levelDescription = "LEVEL " + (currentDungeonLevelListIndex + 1).ToString() + " - " + GetCurrentDungeonLevel().levelName.ToUpper(), playerScore = gameScore,  level = currentDungeonLevelListIndex});
+        HighScoreManager.Instance.AddScore(new Score() { walletAddress = WalletManager.instance.accountStore[0].Address, playerName = GameResources.Instance.currentPlayer.playerName, levelDescription = "LEVEL " + (currentDungeonLevelListIndex + 1).ToString() + " - " + GetCurrentDungeonLevel().levelName.ToUpper(), playerScore = gameScore,  level = currentDungeonLevelListIndex});
 
         // Wait 1 seconds
         yield return new WaitForSeconds(1f);
@@ -649,25 +649,8 @@ public class GameManager : SingletonMonobehaviour<GameManager>
         // Display game won
         yield return StartCoroutine(DisplayMessageRoutine("WELL DONE " + GameResources.Instance.currentPlayer.playerName + "! YOU HAVE DEFEATED THE DUNGEON", Color.white, 3f));
 
-        // if (tokenToAdd > 0)
-        // {
-        //     var txResponse = Transactions.SubmitAndWaitUntilSealed
-        //     (
-        //         Cadence.instance.transferToken.text,
-        //         Convert.ToCadence(WalletManager.instance.flowAccount.Address, "Address"),
-        //         Convert.ToCadence(tokenToAdd, "UFix64")
-        //     );
-        //     InfoDisplay.Instance.ShowInfo("Sign Transaction", "Please sign the token transfer trasaction from your wallet!");
-        //     yield return new WaitUntil(() => txResponse.IsCompleted);
-        //     InfoDisplay.Instance.HideInfo();
-        //     var txResult = txResponse.Result;
-        //     if (txResult.Error != null) Cadence.instance.DebugFlowErrors(txResult.Error);
-        //     else
-        //     {
-        //         Debug.Log($"Transaction Completion Code: {txResult.StatusCode}");
-        //     }
-        // }
-        
+        yield return AddTokens();
+
         yield return StartCoroutine(DisplayMessageRoutine("PRESS RETURN TO RESTART THE GAME", Color.white, 0f));
 
         // Set game state to restart game
@@ -678,14 +661,14 @@ public class GameManager : SingletonMonobehaviour<GameManager>
     /// <summary>
     /// Game Lost
     /// </summary>
-    private async Task<IEnumerator> GameLostAsync()
+    private IEnumerator GameLostAsync()
     {
         previousGameState = GameState.gameLost;
 
         // Disable player
         GetPlayer().playerControl.DisablePlayer();
 
-        //HighScoreManager.Instance.AddScore(new Score() { walletAddress = WalletManager.instance.flowAccount.Address, playerName = GameResources.Instance.currentPlayer.playerName, levelDescription = "LEVEL " + (currentDungeonLevelListIndex + 1).ToString() + " - " + GetCurrentDungeonLevel().levelName.ToUpper(), playerScore = gameScore, level = currentDungeonLevelListIndex });
+        HighScoreManager.Instance.AddScore(new Score() { walletAddress = (string)WalletManager.instance.accountStore[0].Address, playerName = GameResources.Instance.currentPlayer.playerName, levelDescription = "LEVEL " + (currentDungeonLevelListIndex + 1).ToString() + " - " + GetCurrentDungeonLevel().levelName.ToUpper(), playerScore = gameScore, level = currentDungeonLevelListIndex });
 
         // Wait 1 seconds
         yield return new WaitForSeconds(1f);
@@ -703,42 +686,39 @@ public class GameManager : SingletonMonobehaviour<GameManager>
         // Display game lost
         yield return StartCoroutine(DisplayMessageRoutine("BAD LUCK " + GameResources.Instance.currentPlayer.playerName + "! YOU HAVE SUCCUMBED TO THE DUNGEON", Color.white, 2f));
 
-        if (tokenToAdd > 0)
-        {
-            string sender = "<your sender address>";
-            string receiver = "<your receiver address>";
-            TransactionParams suggestedTxnParams = new();
-            MicroAlgos microAlgosToSend = 1_000_000L;
-            PaymentTxn paymentTxn = Transaction.Payment(sender, suggestedTxnParams, receiver, microAlgosToSend);
-            //var account = Account.GenerateAccount();
-            //var signedTxn = account.SignTxn(paymentTxn);
-            //await algod.SendTransaction(signedTxn);
-        }
-
-        // if (tokenToAdd > 0)
-        // {
-        //     var txResponse = Transactions.SubmitAndWaitUntilSealed
-        //     (
-        //         Cadence.instance.transferToken.text,
-        //         Convert.ToCadence(WalletManager.instance.flowAccount.Address, "Address"),
-        //         Convert.ToCadence(tokenToAdd, "UFix64")
-        //     );
-        //     InfoDisplay.Instance.ShowInfo("Sign Transaction", "Please sign the token transfer trasaction from your wallet!");
-        //     yield return new WaitUntil(() => txResponse.IsCompleted);
-        //     InfoDisplay.Instance.HideInfo();
-        //     var txResult = txResponse.Result;
-        //     if (txResult.Error != null) Cadence.instance.DebugFlowErrors(txResult.Error);
-        //     else
-        //     {
-        //         Debug.Log($"Transaction Completion Code: {txResult.StatusCode}");
-        //     }
-        // }
+        yield return AddTokens();
 
         yield return StartCoroutine(DisplayMessageRoutine("PRESS RETURN TO RESTART THE GAME", Color.white, 0f));
 
         // Set game state to restart game
         tokenToAdd = 0;
         gameState = GameState.restartGame;
+    }
+
+    private async Task AddTokens()
+    {
+        if (tokenToAdd > 0)
+        {
+            InfoDisplay.Instance.ShowInfo("Hold tight!", "Adding rewards!");
+            string receiver = WalletManager.instance.accountStore[0].Address;
+            var suggestedParams = await WalletManager.instance.client.TransactionParams();
+            var tx = Transaction.AssetTransfer(
+                WalletManager.instance.gameAccount.Address,
+                suggestedParams.Payload,
+                WalletManager.instance.dunTokenId,
+                (ulong)tokenToAdd * 10,
+                (Address)receiver);
+            SignedTxn<AssetTransferTxn> signedTxn = WalletManager.instance.gameAccount.SignTxn(tx);
+            var response = await WalletManager.instance.client.SendTransaction(signedTxn);
+
+            Debug.Log(response.Error);
+            Debug.Log(response.Status);
+            Debug.Log(response.ResponseCode);
+            Debug.Log(response.Payload.TxId);
+
+            await WalletManager.instance.client.WaitForConfirmation(response.Payload.TxId);
+            InfoDisplay.Instance.HideInfo();
+        }
     }
 
     /// <summary>

@@ -12,14 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64a00a35ce5bbe34da0995589e385360, type: 3}
   m_Name: WeaponDetails_QBZ95SMG
   m_EditorClassIdentifier: 
-  weaponId: 8
+  weaponId: 479783250
   weaponName: QBZ95 SMG
   weaponSprite: {fileID: 21300000, guid: dff74299f2cf7674eb05930ed6b07f8e, type: 3}
   weaponShootPosition: {x: 1.284, y: 0.342, z: 0}
-  weaponCurrentAmmo: {fileID: 11400000, guid: 473934ddfd9225a4aae3a8c67e3ed54f, type: 2}
-  weaponShootEffect: {fileID: 11400000, guid: 8158ae55f0fd7464c80cc8507e7a3cdb, type: 2}
-  weaponFiringSoundEffect: {fileID: 11400000, guid: b3e59d46607988940b2e08c5c4e4d0ec, type: 2}
-  weaponReloadingSoundEffect: {fileID: 11400000, guid: df79efae3f2817b48bec266c391cbdb5, type: 2}
+  weaponCurrentAmmo: {fileID: 11400000, guid: 8d29740d3f7c4f2da8736d20357c728f, type: 2}
+  weaponShootEffect: {fileID: 11400000, guid: 8b5534f05c36648e4bbd8226c5dc0ce0, type: 2}
+  weaponFiringSoundEffect: {fileID: 11400000, guid: 11fe4b2d71651411b8bc4b19ccc08aa9, type: 2}
+  weaponReloadingSoundEffect: {fileID: 11400000, guid: 3e3ca112c1da47b989c9745f75a5a0c7, type: 2}
   hasInfiniteAmmo: 0
   hasInfiniteClipCapacity: 0
   weaponClipAmmoCapacity: 15

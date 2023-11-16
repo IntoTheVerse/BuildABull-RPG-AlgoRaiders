@@ -5,6 +5,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1705139068582714480, guid: f9f2d4b81232e9149a1fe923858a4ee2, type: 3}
@@ -221,7 +222,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6839687933860854480, guid: f9f2d4b81232e9149a1fe923858a4ee2, type: 3}
       propertyPath: weaponSpawnByLevelList.Array.data[4].spawnableObjectRatioList.Array.size
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6839687933860854480, guid: f9f2d4b81232e9149a1fe923858a4ee2, type: 3}
       propertyPath: weaponSpawnByLevelList.Array.data[5].spawnableObjectRatioList.Array.size
@@ -354,7 +355,7 @@ PrefabInstance:
     - target: {fileID: 6839687933860854480, guid: f9f2d4b81232e9149a1fe923858a4ee2, type: 3}
       propertyPath: weaponSpawnByLevelList.Array.data[4].spawnableObjectRatioList.Array.data[1].dungeonObject
       value: 
-      objectReference: {fileID: 11400000, guid: 7718fcd4ce894cf4884609594d62a1b3, type: 2}
+      objectReference: {fileID: 11400000, guid: 721af42a84ce299489bb800b2f6e123d, type: 2}
     - target: {fileID: 6839687933860854480, guid: f9f2d4b81232e9149a1fe923858a4ee2, type: 3}
       propertyPath: weaponSpawnByLevelList.Array.data[4].spawnableObjectRatioList.Array.data[2].dungeonObject
       value: 
@@ -372,4 +373,7 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: e45ac7bcf4447f6498332cc96022174c, type: 2}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f9f2d4b81232e9149a1fe923858a4ee2, type: 3}

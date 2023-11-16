@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Algorand.Unity;
 using UnityEngine;
 
 public class ChestSpawner : MonoBehaviour
